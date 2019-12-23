@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+.App{
+  background-color: black;
+  display: grid;
+  padding: 10px;
+  grid-template-areas: 
+  'header header header header header header'  
+  'controls artboard artboard artboard artboard artboard'
+  'colorinfo colorinfo colorinfo colorinfo colorinfo colorinfo'
+  'footer footer footer footer footer footer';
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.art-container{
+  width: 80%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header{
+  background-color: black;
+  color: white;
+  grid-area: header;
+  padding: 10px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.controls{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ background-color: gray;
+ grid-area: controls;
+ font-size: 10px;
+ line-height: 12px;
+ padding: 10px;
+ margin-right: 20px;
+}
+.artboard{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  background-color: black;
+  grid-area: artboard;
+}
+.color-info{
+  color: white;
+  background-color: black;
+  grid-area: colorinfo;
+}
+.footer{
+  color: white;
+  background-color: black;
+  grid-area: footer;
+}
+.range-container{
+  display: flex;
+  flex-direction: row;
+}
+.range-container label{
+  text-transform: uppercase;
+}
+.color-info{
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  font-size: 12px;
+  line-height: 13px;
+}
+.picture-element{
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 5px;
+}
+.picture-element h4{
+  width: 100px;
+}
+.color-value{
+  min-width: 125px;
+  font-size: 10px;
+  padding: 0px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
