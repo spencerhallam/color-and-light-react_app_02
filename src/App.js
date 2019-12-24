@@ -3,12 +3,17 @@ import './App.css';
 import Range from './components/Range.js'
 import Artboard from './components/Artboard.js'
 import Colorinfo from './components/Colorinfo.js'
-import {hslObject, setColors} from './helpers/Helpers2.js'
+import Preset from './components/Preset.js'
+
+import { hslObject, setColors } from './helpers/Helpers2.js'
+import { marsOne, grayOne, marsTwo, beach, tenebrism, monet, tiepolo } from './helpers/PresetData.js'
+
 
 class App extends React.Component{
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.updatePreset = this.updatePreset.bind(this);
     this.state = {
         initialColor: 39,
         cubeOnehue: 360,
@@ -78,6 +83,37 @@ class App extends React.Component{
     const allColors = setColors(this.state.initialColor, cubeO, this.state.tempvalue, groundO, skyO, this.state.lightvalue);//need to add args: skyO and light value
     this.setState(allColors);
   }
+
+  updatePreset(e){
+    //console.log('updatePreset');
+    console.log('e.target.id: ', e.target.id);
+    if(e.target.id === "mars-01"){
+      this.setState(marsOne);
+    }
+    if(e.target.id === "gray-01"){
+      this.setState(grayOne);
+    }
+    if(e.target.id === "mars-02"){
+      this.setState(marsTwo);
+    }
+    if(e.target.id === "beach"){
+      this.setState(beach);
+    }
+    if(e.target.id === "tenebrism"){
+      this.setState(tenebrism);
+    }
+    if(e.target.id === "monet"){
+      this.setState(monet);
+    }
+    if(e.target.id === "tiepolo"){
+      this.setState(tiepolo);
+    }
+  }
+ 
+ 
+
+
+
  
 
   render(){
@@ -85,6 +121,15 @@ class App extends React.Component{
     return (
       <div className="App">
         <div className="header"><h1>Light &amp; Color Explorer</h1></div>
+        <div className="presets-wrap">
+        <Preset loadPreset={this.updatePreset} buttonName="Gray Scale" id="gray-01" /> 
+        <Preset loadPreset={this.updatePreset} buttonName="Beach" id="beach" /> 
+        <Preset loadPreset={this.updatePreset} buttonName="Tenebrism" id="tenebrism" />
+        <Preset loadPreset={this.updatePreset} buttonName="Monet" id="monet" /> 
+        <Preset loadPreset={this.updatePreset} buttonName="Tiepolo" id="tiepolo" /> 
+        <Preset loadPreset={this.updatePreset} buttonName="Mars Daylight" id="mars-01" /> 
+        <Preset loadPreset={this.updatePreset} buttonName="Mars Night" id="mars-02" />
+        </div>
         <div className="controls">
         <h3>Cube</h3>
         <Range onChange={this.handleChange} myvalue={this.state.cubeOnehue} rangemin={39} rangemax={420} rangeFor="cube-hue" rangeLabel="hue"/>
@@ -131,7 +176,33 @@ class App extends React.Component{
           </div>
 
         </div>
-        <div className="footer">footer</div>
+        <ul className="state-data">
+        
+          <li>initialColor: {this.state.initialColor},</li>
+          <li>cubeOnehue: {this.state.cubeOnehue},</li>
+          <li>cubeOnesat: {this.state.cubeOnesat},</li>
+          <li>cubeOneval: {this.state.cubeOneval},</li>
+          <li>groundhue: {this.state.groundhue},</li>
+          <li>groundsat: {this.state.groundsat},</li>
+          <li>groundval: {this.state.groundval},</li>
+          <li>skyhue: {this.state.skyhue},</li>
+          <li>skysat: {this.state.skysat},</li>
+          <li>skyval: {this.state.skyval},</li>
+          <li>tempvalue: {this.state.tempvalue},</li>
+          <li>lightvalue: {this.state.lightvalue},</li>
+          <li>hi: "{this.state.hi}",</li>
+          <li>lt: "{this.state.lt}",</li>
+          <li>mt: "{this.state.mt}",</li>
+          <li>mtTwo: "{this.state.mtTwo}",</li>
+          <li>mtThree: "{this.state.mtThree}",</li>
+          <li>dk: "{this.state.dk}",</li>
+          <li>gdlt: "{this.state.gdlt}",</li>
+          <li>shad: "{this.state.shad}",</li>
+          <li>reflt: "{this.state.reflt}",</li>
+          <li>sky: "{this.state.sky}"</li>
+          </ul>  
+          
+        <div className="footer"><a href="https://savvywebdev.com">Application by Spencer Hallam</a></div>
       </div>
     );
   }

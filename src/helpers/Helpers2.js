@@ -66,6 +66,7 @@ export function setColors(rangeStrt, initCube, initTemp, initGrd, initSky, initL
     //const refLightSatOne = grdSatAdd - (grdSatAdd*.20) 
     //hueOne, satOne, hueTwo, satTwo, valOne
     
+
     const shadowSky = mixColorsObj(gdHue, gdSat, skyHue, skySat*(skyVal*.01), grdValSix);
     const groundCube = mixColorsObj(gdHue, gdSat, hueAVal, satAVal);
 
@@ -77,8 +78,8 @@ export function setColors(rangeStrt, initCube, initTemp, initGrd, initSky, initL
     const hslSix = mixColors(hueAVal, satAVal, temperature.srcHue , temperature.srcSat, finValSix);
     const hslSeven = mixColors(gdHue, gdSat, temperature.srcHue , temperature.srcSat, grdValOne);
     const hslShadow = mixColors(shadowSky.srcHue, shadowSky.srcSat, temperature.srcHue , temperature.srcSat, shadowValOne);
-    const refLight = mixColors(groundCube.srcHue, groundCube.srcSat, temperature.srcHue , temperature.srcSat, finValFour*(gdVal*.01));
-    const hslSky = mixColors(skyHue, skySat, temperature.srcHue , temperature.srcSat, skyValOne);
+    const refLight = mixColors(groundCube.srcHue, groundCube.srcSat, temperature.srcHue , temperature.srcSat, Math.round(finValFour*(gdVal*.01)));
+    const hslSky = mixColors(skyHue, skySat, temperature.srcHue , temperature.srcSat, Math.round(skyValOne));
   
   return {
         hi : hslOne,

@@ -3,7 +3,8 @@
   display: grid;
   padding: 10px;
   grid-template-areas: 
-  'header header header header header header'  
+  'header header header header header header'
+  'presets presets presets presets presets presets'  
   'controls artboard artboard artboard artboard artboard'
   'colorinfo colorinfo colorinfo colorinfo colorinfo colorinfo'
   'footer footer footer footer footer footer';
@@ -17,12 +18,44 @@
   grid-area: header;
   padding: 10px;
 }
+.presets-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  grid-area: presets;
+  padding: 0px 0px 30px 0px;
+}
+.presets-wrap .preset{
+  flex-grow: 1;
+  flex-wrap: wrap;
+} 
+.presets-wrap .preset button{
+  flex-wrap: wrap;
+  width: 94%;
+  padding: 5px;
+  border: 1px solid gray;
+  color: gray;
+  background-color: black;
+  font-size: 14px;
+}
+.presets-wrap .preset button:hover{
+    border: 1px solid lightgray;
+    color: lightgray;
+ }
+ .presets-wrap .preset button:focus{
+    outline: 0;
+    border: 1px solid white;
+    color: white;
+ }
 .controls{
  display: flex;
  flex-direction: column;
  justify-content: center;
  align-items: center;
- background-color: gray;
+ background-color: black;
+ color: white;
  grid-area: controls;
  font-size: 10px;
  line-height: 12px;
@@ -71,8 +104,19 @@
   width: 100px;
 }
 .color-value{
-  min-width: 125px;
+  min-width: 132px;
   font-size: 10px;
   padding: 0px;
+}
+
+
+.state-data{
+  display: none;
+  color: white;
+  font-size: 12px;
+  list-style: none;
+}
+.range-container span{
+  min-width: 20px;
 }
 
