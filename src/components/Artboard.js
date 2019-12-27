@@ -4,7 +4,7 @@ function Artboard(props) {
   
     return (
     <div className="art-container">
-        <svg viewBox="0 0 800 600" id="cubeSpace"  width="100%" height="auto">
+        <svg viewBox="0 0 800 600" id="cubeSpace"  width="100%">
             <defs>
                 <linearGradient id="grad1" x1="60%" y1="100%" x2="0%" y2="0%">
                     <stop offset="0%" id="gradA" style={{stopColor : props.initColor.reflt}}  />

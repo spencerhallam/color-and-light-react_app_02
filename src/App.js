@@ -131,15 +131,16 @@ class App extends React.Component{
         <Preset loadPreset={this.updatePreset} buttonName="Mars Night" id="mars-02" />
         </div>
         <div className="controls">
-        <h3>Cube</h3>
+          
+        <h3><span style={{color : this.state.mt}}>&#8226; </span><span>Cube</span></h3>
         <Range onChange={this.handleChange} myvalue={this.state.cubeOnehue} rangemin={39} rangemax={420} rangeFor="cube-hue" rangeLabel="hue"/>
         <Range onChange={this.handleChange} myvalue={this.state.cubeOnesat} rangemin={0} rangemax={100} rangeFor="cube-sat" rangeLabel="sat"/>
         <Range onChange={this.handleChange} myvalue={this.state.cubeOneval} rangemin={0} rangemax={100} rangeFor="cube-val" rangeLabel="val"/>
-        <h3>Ground</h3>
+        <h3><span style={{color : this.state.gdlt}}>&#8226; </span>Ground</h3>
         <Range onChange={this.handleChange} myvalue={this.state.groundhue} rangemin={39} rangemax={420} rangeFor="grd-hue" rangeLabel="hue"/>
         <Range onChange={this.handleChange} myvalue={this.state.groundsat} rangemin={0} rangemax={100} rangeFor="grd-sat" rangeLabel="sat"/>
         <Range onChange={this.handleChange} myvalue={this.state.groundval} rangemin={0} rangemax={100} rangeFor="grd-val" rangeLabel="val"/>
-        <h3>Sky</h3>
+        <h3><span style={{color : this.state.sky}}>&#8226; </span>Sky</h3>
         <Range onChange={this.handleChange} myvalue={this.state.skyhue} rangemin={39} rangemax={420} rangeFor="sky-hue" rangeLabel="hue"/>
         <Range onChange={this.handleChange} myvalue={this.state.skysat} rangemin={0} rangemax={100} rangeFor="sky-sat" rangeLabel="sat"/>
         <Range onChange={this.handleChange} myvalue={this.state.skyval} rangemin={0} rangemax={100} rangeFor="sky-val" rangeLabel="val"/>
