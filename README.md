@@ -1,3 +1,6 @@
+# Color And Light App: Build with React!
+This is a tool to visualize light and color relationships. Digital illustators can create a lighting environment then use the HSL values to paint convincing light and shadow in Photoshop or other creative apps. Try the Demo: https://spencerhallam.github.io/color-and-light-react_app_02/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
