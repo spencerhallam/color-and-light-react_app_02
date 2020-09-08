@@ -26,7 +26,7 @@ export function setColors(rangeStrt, initCube, initTemp, initGrd, initSky, initL
     let grdSatAdd = gdSat;
     //let grdValAdd = gdVal;
     
-    
+
     //Sky Values
     const skyHue = parseInt(initSky.h);
     const skySat = parseInt(initSky.s);

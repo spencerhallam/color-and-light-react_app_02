@@ -1,11 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Range(props) {
+Range.propTypes = {
+  rangeLabel: PropTypes.string.isRequired,
+  rangemin: PropTypes.number.isRequired,
+  rangemax: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+  rangeFor: PropTypes.string.isRequired,
+  myvalue: PropTypes.string.isRequired,
+}
+
+function Range({rangeLabel, rangemin, rangemax, onChange, rangeFor, myvalue}) {
     return (
     <div className="range-container">
-        <label>{props.rangeLabel}</label>
-        <input type="range" min={props.rangemin} max={props.rangemax} onChange={props.onChange} value={props.myvalue} className="colorInput" name={"cube-" + props.rangeFor}  id={"range-" + props.rangeFor} />
-    <span>{props.myvalue}</span>
+        <label>{rangeLabel}</label>
+        <input 
+          type="range" 
+          min={rangemin} 
+          max={rangemax} 
+          onChange={onChange} 
+          value={myvalue} 
+          className="colorInput" 
+          name={"cube-" + rangeFor}  
+          id={"range-" + rangeFor} 
+        />
+    <span>{myvalue}</span>
     </div>
     );
   }

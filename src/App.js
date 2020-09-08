@@ -76,11 +76,12 @@ class App extends React.Component{
     if(e.target.id === "range-light-val"){
       this.setState({lightvalue: e.target.value});
     }
-    const cubeO = hslObject(this.state.cubeOnehue, this.state.cubeOnesat, this.state.cubeOneval );
-    const groundO = hslObject(this.state.groundhue, this.state.groundsat, this.state.groundval );
-    const skyO = hslObject(this.state.skyhue, this.state.skysat, this.state.skyval );
-    console.log('State HSL: ', "hsl(" + this.state.cubeOnehue + ", " + this.state.cubeOnesat + "%, " + this.state.cubeOneval + "%)");
-    const allColors = setColors(this.state.initialColor, cubeO, this.state.tempvalue, groundO, skyO, this.state.lightvalue);//need to add args: skyO and light value
+    const {cubeOnehue, cubeOnesat, cubeOneval, groundhue, groundsat, groundval, skyhue, skysat, skyval, initialColor, tempvalue, lightvalue} = this.state;
+    const cubeO = hslObject(cubeOnehue, cubeOnesat, cubeOneval);
+    const groundO = hslObject(groundhue, groundsat, groundval);
+    const skyO = hslObject(skyhue, skysat, skyval);
+    console.log('State HSL: ', "hsl(" + cubeOnehue + ", " + cubeOnesat + "%, " + cubeOneval + "%)");
+    const allColors = setColors(initialColor, cubeO, tempvalue, groundO, skyO, lightvalue);//need to add args: skyO and light value
     this.setState(allColors);
   }
 
@@ -110,45 +111,68 @@ class App extends React.Component{
     }
   }
  
- 
-
-
-
- 
-
   render(){
-    
+    const updatePreset = this.updatePreset;
+    const handleChange = this.handleChange;
+    const {
+      initialColor,
+      cubeOnehue,
+      cubeOnesat,
+      cubeOneval,
+      groundhue,
+      groundsat,
+      groundval,
+      skyhue,
+      skysat, 
+      skyval, 
+      tempvalue,
+      lightvalue,
+      hi,
+      lt,
+      mt,
+      mtTwo,
+      mtThree,
+      dk,
+      gdlt,
+      shad, 
+      reflt,
+      sky
+    } = this.state;
+    // console.log("TEMPVALUE: ", tempvalue);
+    // console.log("HI: ", hi);
+    // console.log("updatePreset: ", updatePreset);
+    // console.log("handleChange: ", handleChange);
+    // console.log("this.handleChange: ", this.handleChange);
+
     return (
       <div className="App">
         <div className="header"><h1>Light &amp; Color Explorer</h1></div>
         <div className="presets-wrap">
-        <Preset loadPreset={this.updatePreset} buttonName="Gray Scale" id="gray-01" /> 
-        <Preset loadPreset={this.updatePreset} buttonName="Beach" id="beach" /> 
-        <Preset loadPreset={this.updatePreset} buttonName="Tenebrism" id="tenebrism" />
-        <Preset loadPreset={this.updatePreset} buttonName="Monet" id="monet" /> 
-        <Preset loadPreset={this.updatePreset} buttonName="Tiepolo" id="tiepolo" /> 
-        <Preset loadPreset={this.updatePreset} buttonName="Mars Daylight" id="mars-01" /> 
-        <Preset loadPreset={this.updatePreset} buttonName="Mars Night" id="mars-02" />
+        <Preset loadPreset={updatePreset} buttonName="Gray Scale" id="gray-01" /> 
+        <Preset loadPreset={updatePreset} buttonName="Beach" id="beach" /> 
+        <Preset loadPreset={updatePreset} buttonName="Tenebrism" id="tenebrism" />
+        <Preset loadPreset={updatePreset} buttonName="Monet" id="monet" /> 
+        <Preset loadPreset={updatePreset} buttonName="Tiepolo" id="tiepolo" /> 
+        <Preset loadPreset={updatePreset} buttonName="Mars Daylight" id="mars-01" /> 
+        <Preset loadPreset={updatePreset} buttonName="Mars Night" id="mars-02" />
         </div>
         <div className="controls">
-          
-        <h3><span style={{color : this.state.mt}}>&#8226; </span><span>Cube</span></h3>
-        <Range onChange={this.handleChange} myvalue={this.state.cubeOnehue} rangemin={39} rangemax={420} rangeFor="cube-hue" rangeLabel="hue"/>
-        <Range onChange={this.handleChange} myvalue={this.state.cubeOnesat} rangemin={0} rangemax={100} rangeFor="cube-sat" rangeLabel="sat"/>
-        <Range onChange={this.handleChange} myvalue={this.state.cubeOneval} rangemin={0} rangemax={100} rangeFor="cube-val" rangeLabel="val"/>
-        <h3><span style={{color : this.state.gdlt}}>&#8226; </span>Ground</h3>
-        <Range onChange={this.handleChange} myvalue={this.state.groundhue} rangemin={39} rangemax={420} rangeFor="grd-hue" rangeLabel="hue"/>
-        <Range onChange={this.handleChange} myvalue={this.state.groundsat} rangemin={0} rangemax={100} rangeFor="grd-sat" rangeLabel="sat"/>
-        <Range onChange={this.handleChange} myvalue={this.state.groundval} rangemin={0} rangemax={100} rangeFor="grd-val" rangeLabel="val"/>
-        <h3><span style={{color : this.state.sky}}>&#8226; </span>Sky</h3>
-        <Range onChange={this.handleChange} myvalue={this.state.skyhue} rangemin={39} rangemax={420} rangeFor="sky-hue" rangeLabel="hue"/>
-        <Range onChange={this.handleChange} myvalue={this.state.skysat} rangemin={0} rangemax={100} rangeFor="sky-sat" rangeLabel="sat"/>
-        <Range onChange={this.handleChange} myvalue={this.state.skyval} rangemin={0} rangemax={100} rangeFor="sky-val" rangeLabel="val"/>
+        <h3><span style={{color : mt}}>&#8226; </span><span>Cube</span></h3>
+        <Range onChange={handleChange} myvalue={cubeOnehue} rangemin={39} rangemax={420} rangeFor="cube-hue" rangeLabel="hue"/>
+        <Range onChange={handleChange} myvalue={cubeOnesat} rangemin={0} rangemax={100} rangeFor="cube-sat" rangeLabel="sat"/>
+        <Range onChange={handleChange} myvalue={cubeOneval} rangemin={0} rangemax={100} rangeFor="cube-val" rangeLabel="val"/>
+        <h3><span style={{color : gdlt}}>&#8226; </span>Ground</h3>
+        <Range onChange={handleChange} myvalue={groundhue} rangemin={39} rangemax={420} rangeFor="grd-hue" rangeLabel="hue"/>
+        <Range onChange={handleChange} myvalue={groundsat} rangemin={0} rangemax={100} rangeFor="grd-sat" rangeLabel="sat"/>
+        <Range onChange={handleChange} myvalue={groundval} rangemin={0} rangemax={100} rangeFor="grd-val" rangeLabel="val"/>
+        <h3><span style={{color : sky}}>&#8226; </span>Sky</h3>
+        <Range onChange={handleChange} myvalue={skyhue} rangemin={39} rangemax={420} rangeFor="sky-hue" rangeLabel="hue"/>
+        <Range onChange={handleChange} myvalue={skysat} rangemin={0} rangemax={100} rangeFor="sky-sat" rangeLabel="sat"/>
+        <Range onChange={handleChange} myvalue={skyval} rangemin={0} rangemax={100} rangeFor="sky-val" rangeLabel="val"/>
         <h3>Temperature</h3>
-        <Range onChange={this.handleChange} myvalue={this.state.tempvalue} rangemin={0} rangemax={255} rangeFor="temp" rangeLabel="C/W"/>
+        <Range onChange={handleChange} myvalue={tempvalue} rangemin={0} rangemax={255} rangeFor="temp" rangeLabel="C/W"/>
         <h3>Light Level </h3>
-        <Range onChange={this.handleChange} myvalue={this.state.lightvalue} rangemin={0} rangemax={100} rangeFor="light-val" rangeLabel="val"/>
-        
+        <Range onChange={handleChange} myvalue={lightvalue} rangemin={0} rangemax={100} rangeFor="light-val" rangeLabel="val"/>
         </div>
         <div className="artboard">
           <Artboard initColor={this.state}/>
@@ -156,51 +180,51 @@ class App extends React.Component{
         <div className="color-info">
           <div className="picture-element">
           <h4>Cube:</h4>
-          <Colorinfo colortitle="highlight" colordata={this.state.hi}/>
-          <Colorinfo colortitle="lightside" colordata={this.state.lt}/>
-          <Colorinfo colortitle="midtone" colordata={this.state.mt}/>
-          <Colorinfo colortitle="darker midtone" colordata={this.state.mtTwo}/>
-          <Colorinfo colortitle="darkest midtone" colordata={this.state.mtThree}/>
-          <Colorinfo colortitle="darkside" colordata={this.state.dk}/>
+          <Colorinfo colortitle="highlight" colordata={hi}/>
+          <Colorinfo colortitle="lightside" colordata={lt}/>
+          <Colorinfo colortitle="midtone" colordata={mt}/>
+          <Colorinfo colortitle="darker midtone" colordata={mtTwo}/>
+          <Colorinfo colortitle="darkest midtone" colordata={mtThree}/>
+          <Colorinfo colortitle="darkside" colordata={dk}/>
           </div>
 
           <div className="picture-element">
           <h4>Ground:</h4>
-          <Colorinfo colortitle="light" colordata={this.state.gdlt}/>
-          <Colorinfo colortitle="shadow" colordata={this.state.shad}/>
-          <Colorinfo colortitle="reflected light" colordata={this.state.reflt}/>
+          <Colorinfo colortitle="light" colordata={gdlt}/>
+          <Colorinfo colortitle="shadow" colordata={shad}/>
+          <Colorinfo colortitle="reflected light" colordata={reflt}/>
           </div>
 
           <div className="picture-element">
           <h4>Sky:</h4>
-          <Colorinfo colortitle="sky" colordata={this.state.sky}/>
+          <Colorinfo colortitle="sky" colordata={sky}/>
           </div>
 
         </div>
         <ul className="state-data">
         
-          <li>initialColor: {this.state.initialColor},</li>
-          <li>cubeOnehue: {this.state.cubeOnehue},</li>
-          <li>cubeOnesat: {this.state.cubeOnesat},</li>
-          <li>cubeOneval: {this.state.cubeOneval},</li>
-          <li>groundhue: {this.state.groundhue},</li>
-          <li>groundsat: {this.state.groundsat},</li>
-          <li>groundval: {this.state.groundval},</li>
-          <li>skyhue: {this.state.skyhue},</li>
-          <li>skysat: {this.state.skysat},</li>
-          <li>skyval: {this.state.skyval},</li>
-          <li>tempvalue: {this.state.tempvalue},</li>
-          <li>lightvalue: {this.state.lightvalue},</li>
-          <li>hi: "{this.state.hi}",</li>
-          <li>lt: "{this.state.lt}",</li>
-          <li>mt: "{this.state.mt}",</li>
-          <li>mtTwo: "{this.state.mtTwo}",</li>
-          <li>mtThree: "{this.state.mtThree}",</li>
-          <li>dk: "{this.state.dk}",</li>
-          <li>gdlt: "{this.state.gdlt}",</li>
-          <li>shad: "{this.state.shad}",</li>
-          <li>reflt: "{this.state.reflt}",</li>
-          <li>sky: "{this.state.sky}"</li>
+          <li>initialColor: {initialColor},</li>
+          <li>cubeOnehue: {cubeOnehue},</li>
+          <li>cubeOnesat: {cubeOnesat},</li>
+          <li>cubeOneval: {cubeOneval},</li>
+          <li>groundhue: {groundhue},</li>
+          <li>groundsat: {groundsat},</li>
+          <li>groundval: {groundval},</li>
+          <li>skyhue: {skyhue},</li>
+          <li>skysat: {skysat},</li>
+          <li>skyval: {skyval},</li>
+          <li>tempvalue: {tempvalue},</li>
+          <li>lightvalue: {lightvalue},</li>
+          <li>hi: "{hi}",</li>
+          <li>lt: "{lt}",</li>
+          <li>mt: "{mt}",</li>
+          <li>mtTwo: "{mtTwo}",</li>
+          <li>mtThree: "{mtThree}",</li>
+          <li>dk: "{dk}",</li>
+          <li>gdlt: "{gdlt}",</li>
+          <li>shad: "{shad}",</li>
+          <li>reflt: "{reflt}",</li>
+          <li>sky: "{sky}"</li>
           </ul>  
           
         <div className="footer"><a href="https://savvywebdev.com">Application by Spencer Hallam</a></div>

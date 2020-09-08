@@ -37,8 +37,7 @@ export function setColors(rangeStrt, initCube, initTemp, initGrd, initSky, initL
     const ltIntens = parseInt(initLight)*.01;
     console.log('ltIntens', ltIntens);
 
-    //Set RGB vlues from Temperature Slider
-    
+    //Set RGB values from Temperature Slider
     const sourceR = initTemp;// should be 0 - 255
     const sourceG = 90 + ((75/255)*initTemp);
     const sourceB = 255 - initTemp;
@@ -154,7 +153,6 @@ export function setColors(rangeStrt, initCube, initTemp, initGrd, initSky, initL
     const yAv = (yOne + yTwo)/2;
     const hue = Math.round(Math.atan2( yAv, xAv )*( 180/Math.PI ));
     const sat = Math.round(Math.sqrt( xAv**2 + yAv**2 ));
-    //const finHSL = `hsl(${hue}, ${sat}%, ${valOne}%)`
     
     return `hsl(${hue}, ${sat}%, ${valOne}%)`
   };

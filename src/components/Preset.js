@@ -1,9 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Preset (props) {
+Preset.propTypes = {
+    loadPreset: PropTypes.func.isRequired,
+    buttonName: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired
+  }
+
+function Preset ({loadPreset, buttonName, id}) {
     return (
         <div className="preset">
-            <button onClick={props.loadPreset} id={props.id}>{props.buttonName}</button>
+            <button onClick={loadPreset} id={id}>{buttonName}</button>
         </div>
     )
 }
