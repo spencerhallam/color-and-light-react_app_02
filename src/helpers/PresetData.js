@@ -172,4 +172,29 @@ export const marsOne = {
         reflt: "hsl(33, 23%, 51%)",
         sky: "hsl(47, 23%, 68%)"
     }
+
+    export const candleLight = {
+        initialColor: 39,
+        cubeOnehue: 360,
+        cubeOnesat: 0,
+        cubeOneval: 100,
+        groundhue: 365,
+        groundsat: 78,
+        groundval: 72,
+        skyhue: 200,
+        skysat: 100,
+        skyval: 70,
+        tempvalue: 183,
+        lightvalue: 80,
+        hi: "hsl(38, 22%, 81%)",
+        lt: "hsl(38, 22%, 69%)",
+        mt: "hsl(38, 22%, 57%)",
+        mtTwo: "hsl(38, 22%, 46%)",
+        mtThree: "hsl(38, 22%, 34%)",
+        dk: "hsl(38, 22%, 23%)",
+        gdlt:  "hsl(17, 59%, 49%)",
+        shad: "hsl(25, 22%, 24.5%)",
+        reflt: "hsl(22, 39%, 33.12%)",
+        sky: "hsl(-173, 30%, 56.7%)"
+    }
   
