@@ -6,7 +6,7 @@ import Colorinfo from './components/Colorinfo.js'
 import Preset from './components/Preset.js'
 
 import { hslObject, setColors } from './helpers/Helpers2.js'
-import { marsOne, grayOne, marsTwo, beach, tenebrism, monet, tiepolo } from './helpers/PresetData.js'
+import { marsOne, grayOne, marsTwo, beach, tenebrism, monet, tiepolo, candleLight} from './helpers/PresetData.js'
 
 
 class App extends React.Component{
