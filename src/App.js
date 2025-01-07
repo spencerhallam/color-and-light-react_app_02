@@ -40,7 +40,7 @@ class App extends React.Component{
 
     };
   }
-  
+  console.log("tag-stateData: ", this.state || "nada")
   handleChange(e){
     console.log("e", e.target.id);
     if(e.target.id === "range-cube-hue"){
