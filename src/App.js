@@ -109,6 +109,9 @@ class App extends React.Component{
     if(e.target.id === "tiepolo"){
       this.setState(tiepolo);
     }
+    if(e.target.id === "candlelight"){
+      this.setState(candleLight);
+    }
   }
  
   render(){
@@ -155,6 +158,7 @@ class App extends React.Component{
         <Preset loadPreset={updatePreset} buttonName="Tiepolo" id="tiepolo" /> 
         <Preset loadPreset={updatePreset} buttonName="Mars Daylight" id="mars-01" /> 
         <Preset loadPreset={updatePreset} buttonName="Mars Night" id="mars-02" />
+        <Preset loadPreset={updatePreset} buttonName="Candle Light" id="candlelight" />
         </div>
         <div className="controls">
         <h3><span style={{color : mt}}>&#8226; </span><span>Cube</span></h3>
