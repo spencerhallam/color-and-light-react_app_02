@@ -1,22 +1,13 @@
 {
   "files": {
-    "main.css": "/color-and-light-react_app_02/static/css/main.e464d942.chunk.css",
-    "main.js": "/color-and-light-react_app_02/static/js/main.f025537d.chunk.js",
-    "main.js.map": "/color-and-light-react_app_02/static/js/main.f025537d.chunk.js.map",
-    "runtime-main.js": "/color-and-light-react_app_02/static/js/runtime-main.0ae8af4b.js",
-    "runtime-main.js.map": "/color-and-light-react_app_02/static/js/runtime-main.0ae8af4b.js.map",
-    "static/js/2.e2503341.chunk.js": "/color-and-light-react_app_02/static/js/2.e2503341.chunk.js",
-    "static/js/2.e2503341.chunk.js.map": "/color-and-light-react_app_02/static/js/2.e2503341.chunk.js.map",
+    "main.css": "/color-and-light-react_app_02/static/css/main.8abec4aa.css",
+    "main.js": "/color-and-light-react_app_02/static/js/main.284893a0.js",
     "index.html": "/color-and-light-react_app_02/index.html",
-    "precache-manifest.8c04a404d19d6f5d6d44d1829a4ba376.js": "/color-and-light-react_app_02/precache-manifest.8c04a404d19d6f5d6d44d1829a4ba376.js",
-    "service-worker.js": "/color-and-light-react_app_02/service-worker.js",
-    "static/css/main.e464d942.chunk.css.map": "/color-and-light-react_app_02/static/css/main.e464d942.chunk.css.map",
-    "static/js/2.e2503341.chunk.js.LICENSE.txt": "/color-and-light-react_app_02/static/js/2.e2503341.chunk.js.LICENSE.txt"
+    "main.8abec4aa.css.map": "/color-and-light-react_app_02/static/css/main.8abec4aa.css.map",
+    "main.284893a0.js.map": "/color-and-light-react_app_02/static/js/main.284893a0.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.0ae8af4b.js",
-    "static/js/2.e2503341.chunk.js",
-    "static/css/main.e464d942.chunk.css",
-    "static/js/main.f025537d.chunk.js"
+    "static/css/main.8abec4aa.css",
+    "static/js/main.284893a0.js"
   ]
 }
