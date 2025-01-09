@@ -6,7 +6,7 @@ import Colorinfo from './components/Colorinfo.js'
 import Preset from './components/Preset.js'
 
 import { hslObject, setColors } from './helpers/Helpers2.js'
-import { marsOne, grayOne, marsTwo, beach, tenebrism, monet, tiepolo, candleLight} from './helpers/PresetData.js'
+import { presetData } from './helpers/PresetDataArray.js'
 
 
 class App extends React.Component{
@@ -14,33 +14,9 @@ class App extends React.Component{
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.updatePreset = this.updatePreset.bind(this);
-    this.state = {
-        initialColor: 39,
-        cubeOnehue: 360,
-        cubeOnesat: 100,
-        cubeOneval: 50,
-        groundhue: 39,
-        groundsat: 30,
-        groundval: 80,
-        skyhue: 200,
-        skysat: 70,
-        skyval: 70,
-        tempvalue: 127,
-        lightvalue: 80,
-        hi: "hsl(0, 50%, 39%)",
-        lt: "hsl(0, 50%, 33%)",
-        mt: "hsl(0, 50%, 28%)",
-        mtTwo: "hsl(0, 50%, 22%)",
-        mtThree: "hsl(0, 50%, 16%)",
-        dk: "hsl(0, 50%, 11%)",
-        gdlt:  "hsl(40, 15%, 54%)",
-        shad: "hsl(-172, 11%, 27%)",
-        reflt: "hsl(9, 31%, 22%)",
-        sky: "hsl(-160, 35%, 55%)"
-
-    };
+    this.state = presetData?.find(item => item.name === "default").graphicsData;
   }
-  console.log("tag-stateData: ", this.state || "nada")
+  //console.log("tag-stateData: ", this.state || "nada")
   handleChange(e){
     console.log("e", e.target.id);
     if(e.target.id === "range-cube-hue"){
@@ -84,34 +60,9 @@ class App extends React.Component{
     const allColors = setColors(initialColor, cubeO, tempvalue, groundO, skyO, lightvalue);//need to add args: skyO and light value
     this.setState(allColors);
   }
-
-  updatePreset(e){
-    //console.log('updatePreset');
-    console.log('e.target.id: ', e.target.id);
-    if(e.target.id === "mars-01"){
-      this.setState(marsOne);
-    }
-    if(e.target.id === "gray-01"){
-      this.setState(grayOne);
-    }
-    if(e.target.id === "mars-02"){
-      this.setState(marsTwo);
-    }
-    if(e.target.id === "beach"){
-      this.setState(beach);
-    }
-    if(e.target.id === "tenebrism"){
-      this.setState(tenebrism);
-    }
-    if(e.target.id === "monet"){
-      this.setState(monet);
-    }
-    if(e.target.id === "tiepolo"){
-      this.setState(tiepolo);
-    }
-    if(e.target.id === "candlelight"){
-      this.setState(candleLight);
-    }
+  updatePreset(e, itemId){
+    const itemData = presetData.find(item => item.name === itemId)?.graphicsData;
+    this.setState(itemData);
   }
  
   render(){
@@ -141,24 +92,17 @@ class App extends React.Component{
       reflt,
       sky
     } = this.state;
-    // console.log("TEMPVALUE: ", tempvalue);
-    // console.log("HI: ", hi);
-    // console.log("updatePreset: ", updatePreset);
-    // console.log("handleChange: ", handleChange);
-    // console.log("this.handleChange: ", this.handleChange);
 
     return (
       <div className="App">
         <div className="header"><h1>Light &amp; Color Explorer</h1></div>
         <div className="presets-wrap">
-        <Preset loadPreset={updatePreset} buttonName="Gray Scale" id="gray-01" /> 
-        <Preset loadPreset={updatePreset} buttonName="Beach" id="beach" /> 
-        <Preset loadPreset={updatePreset} buttonName="Tenebrism" id="tenebrism" />
-        <Preset loadPreset={updatePreset} buttonName="Monet" id="monet" /> 
-        <Preset loadPreset={updatePreset} buttonName="Tiepolo" id="tiepolo" /> 
-        <Preset loadPreset={updatePreset} buttonName="Mars Daylight" id="mars-01" /> 
-        <Preset loadPreset={updatePreset} buttonName="Mars Night" id="mars-02" />
-        <Preset loadPreset={updatePreset} buttonName="Candle Light" id="candlelight" />
+          {
+            this.state &&
+            presetData.map(preset => (
+              <Preset loadPreset={updatePreset} buttonName={preset.title} id={preset.name} key={preset.name}  /> 
+            ))
+          }
         </div>
         <div className="controls">
         <h3><span style={{color : mt}}>&#8226; </span><span>Cube</span></h3>

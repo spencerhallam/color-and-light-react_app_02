@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 Preset.propTypes = {
     loadPreset: PropTypes.func.isRequired,
     buttonName: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired
+    id: PropTypes.string.isRequired
   }
 
 function Preset ({loadPreset, buttonName, id}) {
     return (
         <div className="preset">
-            <button onClick={loadPreset} id={id}>{buttonName}</button>
+            <button onClick={_e => loadPreset(_e, id)} id={id}>{buttonName}</button>
         </div>
     )
 }

@@ -7,7 +7,7 @@ Range.propTypes = {
   rangemax: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   rangeFor: PropTypes.string.isRequired,
-  myvalue: PropTypes.string.isRequired,
+  myvalue: PropTypes.number.isRequired,
 }
 
 function Range({rangeLabel, rangemin, rangemax, onChange, rangeFor, myvalue}) {
